@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p id="mostrar"></p>
+</body>
+<script>
+	async function getContent(){
+		try{
+			const response = await fetch('http://localhost:3600/');
+			// console.log(response);
+			const data = await response.json()
+			// console.log(data)
+			show(data)
+		} catch (error){
+			console.error(error);
+			console.log(error);
+		}
+	}
+
+	getContent()
+
+	function show(users){
+		console.log(users)
+		let output = []
+		for(let user of users){
+			output.push(user)
+			// console.log(user.name)
+		}
+		let m = output.sort()
+		document.getElementById('mostrar').innerHTML = m;
+	}
+
+</script>
+
+</html>
