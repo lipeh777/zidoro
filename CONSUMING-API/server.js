@@ -1,3 +1,4 @@
+const cool = require('cool-ascii-faces');
 const cors = require('cors');
 const express = require('express');
 const axios = require('axios')
@@ -5,7 +6,7 @@ const app = express();
 
 app.use(cors())
 
-
+app.get('/cool', (req, res) => res.send(cool()))
 app.get('/', async(req, res)=>{
 
 try{
